@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chab</title>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <div class="chat">
+        <div class="chat__sidebar" id="sidebar">
+            
+        </div>
+
+
+        <div class="chat__main">
+            <div id="messages" class="chat__messages">
+
+            </div>
+
+
+            <div class="compose">
+                <form id="msg-form-sub">
+                    <input name="message" placeholder="msg" autocomplete="off" required>
+                    <button style="border-radius: 50%;"><h2> ▶</h2></button>
+                </form>
+                <button id="send-location" style="border-radius: 5%;">send location 	&#xf3c5;</button>
+            </div>
+        </div>
+    </div>
+
+    <script id="message-template" type="text/html">
+       
+        <div class="message">
+            <p>
+                <span class="message__name">{{username}}</span>
+                <span class="message__meta">{{create}}</span>
+            </p>
+            <p>{{message}}</p>
+            
+        </div>
+        
+        </script>
+    <script id="loc-message-template" type="text/html">
+           
+            <div class="message">
+                <p>
+                    <span class="message__name">{{username}}</span>
+                    <span class="message__meta">{{create}}</span>
+                </p>
+                <p><a href="{{url}}" target="_blank">My current location 	&#xf124; </a></p>
+            </div>
+            </script>
+<script id="sidebar-template" type="text/html">
+    <div style="border-bottom:2px solid rgba(255, 255, 255, 0.363);">
+       
+<h2 class="room-title" style="color: #6f4cbb"><span> <h6 style="color:rgba(255, 255, 255, 0.664) ;">group name</h6></span>{{room}}</h2></div>
+<h3 class="list-title" style="color: rgba(255, 255, 255, 0.664);">online Users <span style="color: #6f4cbb;">⬇</span></h3>
+<ul class="users" >
+    {{#users}}
+    <li style="border:2px solid #fff;padding: 5%;margin-bottom: 10px;display: flex;border-radius: 50%;padding-left: 8%;"> <span style="align-items: flex-start;">🟢</span> {{username}}</li>
+    {{/users}}
+</ul>
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/chat.js"></script>
+</body>
+
+</html>
